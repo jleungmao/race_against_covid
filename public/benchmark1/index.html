@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+    <style>
+        body{
+            margin-left: 40px;
+            margin-right: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <p style="text-align:center"><img id="logo" src="images/logo.png" height="20%" width="20%"></p>
+    <p style="text-align:center">Game Design Document</p>
+    <p style="text-align:center">by Jackey Mei, Joey Leung, Andy Cen</p>
+
+
+    <h2>Introduction</h2>
+    <p>
+        This document describes a game called “Race Against COVID”, which is designed to be a top-down roguelike dungeon-crawler. 
+        This game helps raise awareness for the ever-increasing dangers caused by the novel coronavirus in an entertaining form factor. 
+        This game utilizes sprite-based animation, tiled backgrounds, collision detection, physics, AI, efficient memory management,
+         render threading, original audio and artwork, and other 2D game techniques. </p>
+
+
+
+    <h2>Technology</h2>
+    <p>
+        “Race Against COVID” will be made using Phaser 3, a 2D game framework for developing HTML5 games on desktop. 
+        It utilizes WebGL as its underlying rendering system. Music and audio effects are handled through Phaser. 
+        Sprite design and animations are created through Aesprite.
+    </p>
+ 
+    <h2>Back Story</h2>
+    <p>
+        It’s 2020, and the world has been infected with the deadly COVID-19. With no apparent cure, panic consumes everybody as stores, 
+        schools, businesses are being closed down due to this virus. Scientists have been hard at work developing a countermeasure 
+        against this virus, an experimental pill dubbed RX-2020. The world’s hopes are lying on RX-2020’s shoulders.
+    </p>
+
+    <h2>Objective</h2>
+    <p>
+        RX-2020’s goal is to navigate through the human body to arrive at the stomach. It is equipped with a medi-gun that 
+        shoots out medication to destroy the viruses on his way to the stomach. As the body of the person who took RX-2020 is 
+        deteriorating fast, RX-2020 only has a short amount of time to make it to their stomach. <br />
+
+        If RX-2020 doesn’t make it in time, the body will succumb to the virus. On its way to the stomach, RX-2020 has to be 
+        careful not to expend too much of its life force on clearing the path to the stomach, or else it won’t be effective enough 
+        to save the patient. 
+    </p>
+
+    <h2>Gameplay</h2>
+    <p>
+        The style of the game will be a mix of a top-down dungeon crawler and bullet hell. The main goal of is to get RX-2020 to
+        the stomach in time to save the patient. Along the way, RX-2020 will encounter the coronavirus, which must be cleared 
+        from every room RX-2020 arrives in before it can continue on its way to the stomach.
+        <ul>
+            <li>RX-2020 will be able to shoot “medicine”, at the expense of its own life force,
+                 using that to purge the viruses that stand between itself and the stomach.</li>
+            <li>Every section of the body RX-2020 gets into must be cleared before it can continue on its journey to the stomach.</li>
+            <li>If RX-2020 takes too long (timer runs out) the patient will die, and the level will fail.</li>
+            <li>RX-2020 will encounter a variety of coronavirus types. These types will include basic viruses, viruses that can divide,
+                 viruses that can attack from afar, quicker viruses, and viruses that can slow it.</li>
+            <li>The more enemies RX-2020 kills, the more ‘points’ it will gain, allowing it to spend
+                 it on upgrades to help it become more effective in curing the patients.</li>
+            <li>RX-2020 will be able to find vitamin C supplements throughout the body to bolster its 
+                ‘health’ (heal itself) and effectiveness.</li>
+        </ul>
+    </p>
+
+    <h2>Controls</h2>
+    <ul>
+        <li><strong>W</strong> - Move Up</li>
+        <li><strong>A</strong> - Move Left</li>
+        <li><strong>S</strong> - Move Down</li>
+        <li><strong>D</strong> - Move Right</li>
+        <li><strong>Q</strong> - Upgrade Weapon</li>
+        <li><strong>E</strong> - Increase Health Points</li>
+        <li><strong>MOUSE</strong> - Aim</li>
+        <li><strong>LEFT-MOUSE-CLICK</strong> - Attack/Weapon Fire</li>
+        <li><strong>ESC</strong> - Pause Game</li>
+    </ul>
+
+    <h2>Graphic User Interface</h2>
+    <ul>
+        <li><strong>Splash Screen</strong> - This screen will display the game’s logo, a relevant background, and a loading bar 
+            to the main menu.</li>
+            <img src = "images/splash.png" height="30%" width="30%">
+        <li><strong>Main Menu</strong> - This screen will show options for the player to go to a level selection screen, a 
+            controls screen, a help screen and a start button that plays the highest unlocked level.</li>
+            <img src = "images/mainscreen.png" height="30%" width="30%">
+        <li><strong>Level Selection Screen</strong> - This screen allows the player to select a level to play. For new players, only 
+            level 1 is unlocked and subsequent levels will be unlocked when the player passes the previous levels.</li>
+            <img src = "images/levelselect.png" height="30%" width="30%">
+        <li><strong>Controls Screen</strong> - This screen displays the controls for the game.</li>
+        <img src = "images/controls.png" height="20%" width="30%">
+        <li><strong>Help/About Screen</strong> - This screen explains the backstory for the game and displays the name of 
+            the game developers.</li>
+            <img src = "images/help.png" height="30%" width="30%">
+        <li><strong>In-Game Screen</strong> - Player can press “ESC” to pause the game. When the game is paused, a pause screen 
+            will appear that allows the player to resume the game, to view the controls again, to restart the level, and exit 
+            the game which will bring the player back to the main menu.</li>
+            <img src = "images/pause.png" height="30%" width="30%">
+    </ul>
+
+    <h2>Artwork</h2>
+    <ul>
+        <li>RX-2020 with tier 1, 2, and 3 guns. There will be a set of animations for each one of these versions of RX-2020</li>
+        <ul>
+            <li>Walking Left</li>
+            <li>Walking Right</li>
+            <li>Walking Up</li>
+            <li>Walking Down</li>
+            <li>Taking Damage (All directions)</li>
+            <li>Attacking animation (All directions)</li>
+            <li>Dying</li>
+            <li>Dead</li>
+        </ul>
+        <li>Coronavirus (All of the melee sprites)</li>
+        <ul>
+            <li>Traveling</li>
+            <li>Taking Damage</li>
+            <li>Dying</li>
+        </ul>
+        <li>Coronavirus (Ranged sprites)</li>
+        <ul>
+            <li>Travelling</li>
+            <li>Taking Damage</li>
+            <li>Attacking</li>
+            <li>Dying</li>
+        </ul>
+        <li>Wall, floor, and doorway tiles</li>
+        <li>Vitamin C Powerup</li>
+    </ul>
+
+    <h2>Sound Effects</h2>
+    <p>
+        All sound effects will be original. Sounds must be made to coincide with each of the following events:
+        <ul>
+            <li><strong>Shooting</strong></li>
+            <li><strong>Time Running Out</strong></li>
+            <li><strong>Weapon Upgrade</strong></li>
+            <li><strong>Increase Health Point</strong></li>
+            <li><strong>Obtain Powerup</strong></li>
+            <li><strong>RX-2020 Dying</strong></li>
+            <li><strong>RX-2020 Getting Hurt</strong></li>
+            <li><strong>RX-2020 Completing a Level</strong></li>
+            <li><strong>Enemy Virus Getting Hurt</strong></li>
+        </ul>
+    </p>
+
+    <h2>Music</h2>
+    <p>Game Music will be added when time permits.</p>
+
+
+</body>
+</html>
